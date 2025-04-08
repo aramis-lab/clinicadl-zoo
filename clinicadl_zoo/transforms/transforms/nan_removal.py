@@ -38,7 +38,7 @@ class NanRemoval(tio.Transform):
 
     def apply_transform(self, datapoint: DataPoint) -> DataPoint:
         for image in datapoint.get_images(intensity_only=True):
-            image.tensor = self._nan_removal(image.tensor)
+            image.set_data(self._nan_removal(image.tensor))
         return datapoint
 
     def _nan_removal(self, tensor: torch.Tensor) -> torch.Tensor:
