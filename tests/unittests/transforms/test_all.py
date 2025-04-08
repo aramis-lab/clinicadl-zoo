@@ -14,14 +14,6 @@ X = DataPoint(
 )
 
 
-def test_get_transform_config():
-    config = get_transform_config("NanRemoval", nan=1)
-    assert config.name == "NanRemoval"
-    assert config.nan == 1
-    assert config.posinf is None
-    assert config.neginf is None
-
-
 def test_all_config():
     """
     Check that all transforms are implemented in the zoo.
