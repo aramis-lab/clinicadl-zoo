@@ -1,4 +1,4 @@
-PACKAGES := clinicadl-zoo
+PACKAGES := clinicadl_zoo tests
 POETRY ?= poetry
 CONDA ?= conda
 CONDA_ENV ?= "./env"
