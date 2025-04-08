@@ -2,9 +2,10 @@ from typing import Optional
 
 import torch
 import torchio as tio
+from clinicadl.data.structures import DataPoint
 
 
-class NanRemoval(tio.IntensityTransform):
+class NanRemoval(tio.Transform):
     """
     Replaces NaN, positive infinity, and negative infinity values.
 
@@ -35,14 +36,10 @@ class NanRemoval(tio.IntensityTransform):
         self.nan, self.posinf, self.neginf = nan, posinf, neginf
         self.args_names = ["nan", "posinf", "neginf"]
 
-    def apply_transform(self, subject: tio.Subject) -> tio.Subject:
-        for image in self.get_images(subject):
-            assert isinstance(image, tio.ScalarImage)
-            self._apply_nan_removal(image)
-        return subject
-
-    def _apply_nan_removal(self, image: tio.ScalarImage) -> None:
-        image.set_data(self._nan_removal(image.data))
+    def apply_transform(self, datapoint: DataPoint) -> DataPoint:
+        for image in datapoint.get_images(intensity_only=True):
+            image.tensor = self._nan_removal(image.tensor)
+        return datapoint
 
     def _nan_removal(self, tensor: torch.Tensor) -> torch.Tensor:
         return tensor.nan_to_num(self.nan, self.posinf, self.neginf)
