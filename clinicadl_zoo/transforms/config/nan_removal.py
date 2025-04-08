@@ -5,8 +5,8 @@ from clinicadl.transforms.config import TransformConfig
 from clinicadl.utils.config import DefaultFromLibrary
 from pydantic import computed_field
 
+from ..enum import ZooTransform
 from ..transforms.nan_removal import NanRemoval
-from .enum import ZooTransform
 
 
 class NanRemovalConfig(TransformConfig):

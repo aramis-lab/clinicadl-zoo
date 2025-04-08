@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "clinicadl-zoo"
+name = "clinicadl_zoo"
 version = "0.1.0"
 description = "Community transforms and models for clinicadl"
 license = "MIT"
@@ -27,8 +27,8 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.12"
-clinicadl= ">=1.6.0"
+python = ">=3.9,<3.12"
+clinicadl = { git = "https://github.com/aramis-lab/clinicadl.git", branch = "clinicadl_v2" }
 
 
 
@@ -62,3 +62,6 @@ summary = ''
 skip = ".git,LICENSE.txt,*.m,"
 quiet-level = 3
 ignore-words-list = "nd,fwe,commun,fo,te,artic,ressources,adn"
+
+[tool.setuptools]
+packages = ["clinicadl_zoo"]

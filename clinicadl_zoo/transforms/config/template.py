@@ -1,10 +1,12 @@
+from typing import Union
+
 import torchio as tio
 from clinicadl.transforms.config import TransformConfig
 from clinicadl.utils.config import DefaultFromLibrary
 from pydantic import computed_field
 
+from ..enum import ZooTransform
 from ..transforms.template import Template
-from .enum import ZooTransform
 
 
 class TemplateConfig(TransformConfig):
