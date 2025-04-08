@@ -1,11 +1,8 @@
 from typing import Any, Union
 
-# pylint: disable=unused-import
 from clinicadl.transforms.config.base import TransformConfig
 
-# factory of custom transforms
-from .config.nan_removal import NanRemovalConfig
-from .config.template import TemplateConfig
+from .config import *
 from .enum import ZooTransform
 
 
