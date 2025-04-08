@@ -28,10 +28,7 @@ class Template(tio.IntensityTransform):
         self.args_names = ["arg1", "arg2"]
 
     def apply_transform(self, subject: tio.Subject) -> tio.Subject:
-        """"
+        """ "
         Apply the transform to the subject.
         """
         return subject
-
-
-

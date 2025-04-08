@@ -1,9 +1,7 @@
-
 import torchio as tio
-from pydantic import computed_field
-
-from clinicadl.utils.config import DefaultFromLibrary
 from clinicadl.transforms.config import TransformConfig
+from clinicadl.utils.config import DefaultFromLibrary
+from pydantic import computed_field
 
 from ..transforms.nan_removal import NanRemoval
 from .enum import ZooTransform

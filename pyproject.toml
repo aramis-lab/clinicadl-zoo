@@ -27,7 +27,8 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-clinicadl= ">=2.0.0"
+python = ">=3.8,<3.12"
+clinicadl= ">=1.6.0"
 
 
 

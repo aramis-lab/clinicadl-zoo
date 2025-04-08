@@ -2,11 +2,12 @@ from typing import Any, Union
 
 # pylint: disable=unused-import
 from clinicadl.transforms.config.base import TransformConfig
-from .enum import ZooTransform
 
 # factory of custom transforms
 from .config.nan_removal import NanRemovalConfig
 from .config.template import TemplateConfig
+from .enum import ZooTransform
+
 
 def get_transform_config(
     name: Union[str, ZooTransform], **kwargs: Any
