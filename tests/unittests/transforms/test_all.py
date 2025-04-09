@@ -7,8 +7,6 @@ from clinicadl.transforms.config import TransformConfig
 
 import clinicadl_zoo.transforms.config as config_module
 import clinicadl_zoo.transforms.transforms as transforms_module
-from clinicadl_zoo.transforms import ZooTransform
-from clinicadl_zoo.transforms.factory import get_transform_config
 
 X = DataPoint(
     image=tio.ScalarImage(tensor=torch.randn(1, 16, 17, 18)),
