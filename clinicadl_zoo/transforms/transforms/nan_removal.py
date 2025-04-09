@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, get_type_hints
 
 import torch
 import torchio as tio
