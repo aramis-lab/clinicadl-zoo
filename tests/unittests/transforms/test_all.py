@@ -7,6 +7,7 @@ from clinicadl.transforms.config import TransformConfig
 
 import clinicadl_zoo.transforms.config as config_module
 import clinicadl_zoo.transforms.transforms as transforms_module
+from clinicadl_zoo.transforms.factory import get_transform_config
 
 X = DataPoint(
     image=tio.ScalarImage(tensor=torch.randn(1, 16, 17, 18)),
@@ -24,13 +25,9 @@ def test_all_config():
     for name in dir(config_module):
         cls = getattr(config_module, name)
         if inspect.isclass(cls):
-            assert inspect.isclass(cls), f"{name} is not a class"
             assert issubclass(cls, TransformConfig)
-            assert hasattr(cls, "name"), f"{name} is missing 'name' attribute"
-            assert hasattr(cls, "_get_class"), f"{name} is missing '_get_class' method"
-            assert callable(
-                getattr(cls, "_get_class")
-            ), f"{name}._get_class is not callable"
+            assert not inspect.isabstract(cls)
+            # assert isinstance(cls._get_class(), tio.Transform)  # TODO: uncomment when _get_class is a methodclass
 
 
 def test_all_transforms():
@@ -43,7 +40,6 @@ def test_all_transforms():
     for name in dir(transforms_module):
         cls = getattr(transforms_module, name)
         if inspect.isclass(cls):
-            assert inspect.isclass(cls), f"{name} is not a class"
             assert issubclass(cls, tio.Transform)
 
             # Check `apply_transform` method
@@ -55,6 +51,8 @@ def test_all_transforms():
 
             # Check signature: takes exactly one argument (besides self)
             sig = inspect.signature(method)
+            assert sig.return_annotation is DataPoint
+
             params = list(sig.parameters.values())
             assert (
                 len(params) == 2
@@ -67,3 +65,11 @@ def test_all_transforms():
             assert (
                 param.annotation is DataPoint
             ), f"{name}.apply_transform param must be of type DataPoint"
+
+
+def test_factory():
+    config = get_transform_config("NanRemoval", nan=1)
+    assert config.name == "NanRemoval"
+    assert config.nan == 1
+    assert config.posinf is None
+    assert config.neginf is None
