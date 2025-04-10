@@ -1,0 +1,27 @@
+# Python and system files
+clinicadl.egg-info
+*egg-info
+*.log
+*.pyc
+*.o
+*.lib
+*.sys
+*.so
+.DS_Store
+*.swp
+
+# Editor's files
+.idea
+.vscode
+.env
+
+# Code coverage and crash log files
+.coverage*
+crash*
+
+# Pytest files
+.pytest_cache/
+
+# Notebook jupyter
+.ipynb_checkpoints/
+
