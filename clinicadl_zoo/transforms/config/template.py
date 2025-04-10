@@ -11,7 +11,7 @@ from ..transforms.template import Template
 
 class TemplateConfig(TransformConfig):
     """
-    Config class for :py:class:`clinicadl.transforms.NanRemoval <clinicadl.transforms.homemade_transforms.NanRemoval>`.
+    Config class for :py:class:`~clinicadl_zoo.transforms.transforms.Template`.
     """
 
     arg1: float
