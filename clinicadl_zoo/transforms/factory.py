@@ -34,8 +34,8 @@ def get_transform_config(
         config = globals()[config_name]
     except KeyError:
         raise ValueError(
-            f"Can't find the transform {name}. "
-            f"Please check if you have imported the transform in the config factory."
+            f"Can't find the config class associated to the transform '{name}'. "
+            "Please check that you have created this config class."
         )
 
     return config(**kwargs)
