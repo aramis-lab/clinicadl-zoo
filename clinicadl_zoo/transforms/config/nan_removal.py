@@ -11,7 +11,7 @@ from ..transforms.nan_removal import NanRemoval
 
 class NanRemovalConfig(TransformConfig):
     """
-    Config class for :py:class:`clinicadl.transforms.NanRemoval <clinicadl.transforms.homemade_transforms.NanRemoval>`.
+    Config class for :py:class:`~clinicadl_zoo.transforms.transforms.NanRemoval`.
     """
 
     nan: float
