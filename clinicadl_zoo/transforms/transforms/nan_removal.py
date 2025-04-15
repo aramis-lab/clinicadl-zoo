@@ -36,7 +36,7 @@ class NanRemoval(tio.Transform):
         self.nan, self.posinf, self.neginf = nan, posinf, neginf
         self.args_names = ["nan", "posinf", "neginf"]
 
-    def apply_transform(self, datapoint: DataPoint) -> DataPoint:   # pylint: disable=arguments-renamed
+    def apply_transform(self, datapoint: DataPoint) -> DataPoint:  # pylint: disable=arguments-renamed
         for image in datapoint.get_images(intensity_only=True):
             image.set_data(self._nan_removal(image.tensor))
         return datapoint

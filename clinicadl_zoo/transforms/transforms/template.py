@@ -24,7 +24,7 @@ class Template(tio.IntensityTransform):
         self.arg1, self.arg2 = arg1, arg2
         self.args_names = ["arg1", "arg2"]
 
-    def apply_transform(self, datapoint: DataPoint) -> DataPoint:   # pylint: disable=arguments-renamed
+    def apply_transform(self, datapoint: DataPoint) -> DataPoint:  # pylint: disable=arguments-renamed
         """
         Apply the transform to the datapoint.
         """
