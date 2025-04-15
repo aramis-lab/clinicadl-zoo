@@ -14,10 +14,12 @@ GOOD_INPUTS = [
     {"posinf": None, "neginf": None},
 ]
 
+
 @pytest.mark.parametrize("args", BAD_INPUTS)
 def test_bad_inputs(args: dict):
     with pytest.raises(ValidationError):
         NanRemovalConfig(**args)
+
 
 @pytest.mark.parametrize("args", GOOD_INPUTS)
 def test_good_inputs(args: dict):
