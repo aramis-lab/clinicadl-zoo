@@ -1,28 +1,39 @@
+import numpy as np
 import pytest
 import torch
 import torchio as tio
 from clinicadl.data.structures import DataPoint
+from pydantic import ValidationError
 
 from clinicadl_zoo.transforms import NanRemoval
 from clinicadl_zoo.transforms.config import NanRemovalConfig
 
+BAD_INPUTS = [{"nan": None}]
 GOOD_INPUTS = [
-    {"posinf": 1.2, "neginf": 0.1},
+    {"nan": 1.42, "posinf": 1.2, "neginf": 0.1},
     {"posinf": None, "neginf": None},
 ]
 
 
+@pytest.mark.parametrize("args", BAD_INPUTS)
+def test_bad_inputs(args: dict):
+    with pytest.raises(ValidationError):
+        NanRemovalConfig(**args)
+
+
 @pytest.mark.parametrize("args", GOOD_INPUTS)
 def test_good_inputs(args: dict):
-    config = NanRemoval(**args)
+    config = NanRemovalConfig(**args)
     for arg, value in args.items():
         assert getattr(config, arg) == value
 
 
 def test_get_object():
-    config = NanRemovalConfig()
-    transform_from_config = config.get_object()
-    assert isinstance(transform_from_config, NanRemoval)
+    config = NanRemovalConfig(posinf=1.2)
+    nan_removal = config.get_object()
+    assert isinstance(nan_removal, NanRemoval)
+    assert np.isclose(nan_removal.posinf, 1.2)
+    assert nan_removal.neginf is None  # default
 
 
 def test_nan_removal():
