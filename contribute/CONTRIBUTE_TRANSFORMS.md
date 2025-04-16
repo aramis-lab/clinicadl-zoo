@@ -11,7 +11,7 @@
 
 The goal of this tutorial is to add your own transforms to the ClinicaDL Transform Zoo, so that they benefit the community and can be easily reused in your future works.
 
-For this tutorial, you will work on the Git repository [ClinicaDL Zoo](https://github.com/aramis-lab/clinicadl-zoo.git). You can clone it via:
+For this tutorial, you will work on this Git repository. You can clone it via:
 
 ```
 git clone https://github.com/aramis-lab/clinicadl-zoo.git
@@ -25,11 +25,11 @@ git checkout -b my_custom_transform
 
 ## STEP 1: Write the Transform
 
-First of all, add your transform in a Python file in `clinicadl_zoo/transforms/transforms`.
+First of all, write your transform in a Python file in `clinicadl_zoo/transforms/transforms`.
 
 To write a transform compatible with ClinicaDL, please follow the [associated tutorial](https://github.com/aramis-lab/clinicadl-tutorials/blob/main/transforms/custom_transforms.ipynb).
 
-<u>In a nutshell</u>:
+<ins>In a nutshell</ins>:
 
 A transform compatible with ClinicaDL is a transform that inherits from [torchio.Transforms](https://torchio.readthedocs.io/transforms/transforms.html#torchio.transforms.Transform). 
 
@@ -163,8 +163,7 @@ Once the tests are implemented, you can test your code with the command:
 pytest tests/unittests/transform
 ```
 
-PS: before running this command, make sure that your `clinicadl` environment is activated and that you are
-the repo `clinicadl-zoo`.
+PS: before running this command, make sure that your `ClinicaDL` environment is activated and that you are in the repo `clinicadl-zoo`.
 
 ## STEP 5: Create a Pull Request in the repository 
 
