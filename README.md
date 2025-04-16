@@ -39,7 +39,7 @@ a Pull Request on this repository. To do this, please follow to relevant tutoria
 
 To contribute, you need:
 
-1. a [Python environment with ClinicaDL](https://clinicadl.readthedocs.io/en/latest/installation.html) installed;
+1. a [Python environment with ClinicaDL](https://clinicadl.readthedocs.io/en/latest/installation.html) installed in developer mode (i.e. via poetry);
 2. to clone this repository (ideally, [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) it first):
 
     ```
@@ -48,6 +48,5 @@ To contribute, you need:
 3. to install some developing tools:
     ```
     cd clinicadl-zoo
-    pip install pre-commit
     pre-commit install
     ```
