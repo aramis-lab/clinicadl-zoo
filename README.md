@@ -33,4 +33,21 @@ Compose([NanRemoval(nan=0.0, posinf=None, neginf=None), ZNormalization(masking_m
 To add your transforms or models to ``ClinicaDL Zoo``, you need to open
 a Pull Request on this repository. To do this, please follow to relevant tutorial:
 
-- [add a transform](https://github.com/aramis-lab/clinicadl-tutorials/blob/main/transforms/transforms_zoo.ipynb)
+- [add a transform](contribute/CONTRIBUTE_TRANSFORMS.md)
+
+### Prerequisite
+
+To contribute, you need:
+
+1. a [Python environment with ClinicaDL](https://clinicadl.readthedocs.io/en/latest/installation.html) installed;
+2. to clone this repository (ideally, [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) it first):
+
+    ```
+    git clone https://github.com/aramis-lab/clinicadl-zoo.git
+    ```
+3. to install some developing tools:
+    ```
+    cd clinicadl-zoo
+    pip install pre-commit
+    pre-commit install
+    ```
