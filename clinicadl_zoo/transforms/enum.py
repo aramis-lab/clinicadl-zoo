@@ -8,3 +8,4 @@ class ZooTransform(str, BaseEnum):
 
     NAN_REMOVAL = "NanRemoval"
     TEMPLATE = "Template"
+    HYPOMETABOLISM = "Hypometabolism"
